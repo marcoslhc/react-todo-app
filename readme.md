@@ -4,19 +4,19 @@ Copyright 2019 by Marcos Hernandez
 
 # Installation
 
-get the code in github
+1. get the code in github
 
 ```sh
 git clone
 ```
 
-# install dependencies
+2. install dependencies
 
 ```sh
 $ npm i
 ```
 
-# Run the code
+3. Run the code
 
 ```sh
 $ npm start
