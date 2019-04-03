@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TaskList from "./Components/TaskList";
-import FilterButton from "./Components/FilterButton";
-import CreateTaskButton from "./Components/CreateTaskButton";
 import style from "./style.module.css";
-import FilterBar from "./Components/FilterBar";
+import {
+  TaskList,
+  FilterButton,
+  CreateTaskButton,
+  FilterBar
+} from "./Components";
+
 import {
   createTask,
   deleteTask,
@@ -35,7 +38,7 @@ function App() {
         <FilterButton onFilter={viewUncomplete(dispatch)}>
           Uncomplete
         </FilterButton>
-        <FilterButton onFilter={viewComplete(dispatch)}>Completed</FilterButton>{" "}
+        <FilterButton onFilter={viewComplete(dispatch)}>Completed</FilterButton>
       </FilterBar>
       <CreateTaskButton onCreateTask={createTask(dispatch)} />
     </div>

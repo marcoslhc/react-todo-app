@@ -6,6 +6,7 @@ import {
   FILTER_VIEW_ALL,
   CREATE_TASK
 } from "./actions";
+
 export default function reducer(
   state = {
     tasks: [],

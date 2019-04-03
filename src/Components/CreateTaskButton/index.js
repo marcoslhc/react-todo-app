@@ -1,61 +1,58 @@
 import React from "react";
 import style from "./style.module.css";
+const Button = ({ children, ...props }) => <div {...props}>{children}</div>;
+const ActionButton = props => (
+  <Button className={style.CreateTaskButton} {...props}>
+    Create New Task
+  </Button>
+);
+const CancelButton = props => (
+  <Button className={style.TextCancel} {...props}>
+    Cancel
+  </Button>
+);
+const SaveButton = props => (
+  <Button className={style.TextSave} {...props}>
+    Save
+  </Button>
+);
+const TextInput = props => (
+  <Button className={style.TitleInput}>
+    <input className={style.TextInput} type="text" {...props} />
+  </Button>
+);
+
+const SaveCancelCombo = ({ onSave, onCancel }) => (
+  <div className={style.TitleSaveCancel}>
+    <SaveButton onClick={onSave} />
+    <CancelButton onClick={onCancel} />
+  </div>
+);
 
 export default function CreateTaskButton({ onCreateTask }) {
-  const [state, setState] = React.useState({
-    clean: true,
-    title: ""
-  });
+  const [clean, setClean] = React.useState(true);
+  const [title, setTitle] = React.useState("");
+  const cleanAfterAction = () => {
+    setTitle("");
+    setClean(true);
+  };
   return (
     <div className={style.CreateTask}>
-      {state.clean ? (
-        <div
-          className={style.CreateTaskButton}
-          onClick={() =>
-            setState({
-              clean: !state.clean
-            })
-          }>
-          Create New Task
-        </div>
+      {clean ? (
+        <ActionButton onClick={() => setClean(!clean)} />
       ) : (
         <div className={style.TitleForm}>
-          <div className={style.TitleInput}>
-            <input
-              className={style.TextInput}
-              type="text"
-              onChange={({ target: { value } }) =>
-                setState({
-                  title: value
-                })
-              }
-              value={state.value}
-            />
-          </div>
-          <div className={style.TitleSaveCancel}>
-            <div
-              className={style.TextSave}
-              onClick={() => {
-                onCreateTask({
-                  title: state.title
-                });
-                setState({
-                  title: "",
-                  clean: true
-                });
-              }}>
-              Save
-            </div>
-            <div
-              className={style.TextCancel}
-              onClick={() =>
-                setState({
-                  clean: true
-                })
-              }>
-              Cancel
-            </div>
-          </div>
+          <TextInput
+            onChange={({ target: { value } }) => setTitle(value)}
+            value={title}
+          />
+          <SaveCancelCombo
+            onSave={() => {
+              onCreateTask({ title });
+              cleanAfterAction();
+            }}
+            onCancel={cleanAfterAction}
+          />
         </div>
       )}
     </div>
