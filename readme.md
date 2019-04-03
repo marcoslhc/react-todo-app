@@ -6,14 +6,15 @@ Copyright 2019 by Marcos Hernandez
 
 get the code in github
 
-````
+```sh
 git clone
+```
 
 # install dependencies
 
 ```sh
 $ npm i
-````
+```
 
 # Run the code
 
