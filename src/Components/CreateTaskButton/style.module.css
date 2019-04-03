@@ -1,0 +1,50 @@
+.CreateTask {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.CreateTaskButton {
+  display: flex;
+  padding: 0.9em;
+  border: solid 1px black;
+  border-radius: 0.3em;
+  margin: 1em 0 1em 0;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+}
+.TitleForm {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+}
+.TitleSaveCancel {
+  display: flex;
+}
+.TextSave {
+  display: flex;
+  border: solid 1px rgb(15, 117, 14);
+  border-radius: 0.3em;
+  margin: auto 0.25em auto 0.25em;
+  padding: 0.5em;
+}
+.TextCancel {
+  display: flex;
+  border: solid 1px rgb(173, 6, 6);
+  border-radius: 0.3em;
+  margin: auto auto auto 0.25em;
+  padding: 0.5em;
+}
+.TitleInput {
+  display: flex;
+  flex-grow: 1;
+}
+.TextInput {
+  display: block;
+  width: 100%;
+  padding: 0.4em;
+  font-size: 1.14em;
+}

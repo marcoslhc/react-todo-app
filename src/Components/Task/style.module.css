@@ -1,0 +1,32 @@
+.TaskDone {
+  text-decoration: line-through;
+}
+
+.Task {
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: solid 1px rgb(22, 22, 22);
+  padding: 0.5em 0 0.5em 0;
+}
+
+.TaskLabel {
+  display: flex;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.Checkbox {
+  margin-right: 1em;
+}
+
+.Delete {
+  color: red;
+  justify-self: flex-end;
+  align-self: flex-end;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.Task:hover .Delete {
+  opacity: 1;
+}
