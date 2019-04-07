@@ -1,42 +1,75 @@
 .CreateTask {
+  min-height: 63px;
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  flex-flow: column nowrap;
   justify-content: center;
-  width: 100%;
 }
 .CreateTaskButton {
+  display: -webkit-flex;
   display: flex;
-  padding: 0.9em;
-  border: solid 1px black;
-  border-radius: 0.3em;
-  margin: 1em 0 1em 0;
-  text-align: center;
-  justify-content: center;
+  padding: 0.5em 0;
+  justify-content: flex-start;
   cursor: pointer;
   width: 100%;
 }
 .TitleForm {
+  display: -webkit-flex;
   display: flex;
   flex-flow: row nowrap;
   flex-grow: 1;
+  padding: 0.3em 0.9em 0.3em 0.9em;
+  margin: 0.3em 0 0.3em 0;
+}
+
+.ActionButtonEnter {
+  opacity: 0;
+}
+
+.ActionButtonEnterActive {
+  transition: all 200ms;
+  opacity: 1;
+}
+
+.ActionButtonExit {
+  opacity: 1;
+}
+
+.ActionButtonExitActive {
+  opacity: 0;
+  transition: all 200ms;
+}
+.TitleFormEnter {
+  opacity: 0;
+}
+.TitleFormEnterActive {
+  transition: all 200ms;
+  opacity: 1;
+}
+.TitleFormExit {
+  opacity: 1;
+}
+.TitleFormExitActive {
+  opacity: 0;
+  transition: all 200ms;
 }
 .TitleSaveCancel {
   display: flex;
 }
-.TextSave {
+
+.Button {
   display: flex;
-  border: solid 1px rgb(15, 117, 14);
-  border-radius: 0.3em;
-  margin: auto 0.25em auto 0.25em;
   padding: 0.5em;
+  font-size: 1em;
+}
+.TextSave {
+  composes: Button;
+  color: var(--green);
+  margin: auto 0.25em auto 0.25em;
 }
 .TextCancel {
-  display: flex;
-  border: solid 1px rgb(173, 6, 6);
-  border-radius: 0.3em;
+  composes: Button;
+  color: var(--red);
   margin: auto auto auto 0.25em;
-  padding: 0.5em;
 }
 .TitleInput {
   display: flex;
@@ -45,6 +78,7 @@
 .TextInput {
   display: block;
   width: 100%;
-  padding: 0.4em;
-  font-size: 1.14em;
+  padding: 0 0.4em 0 0.8em;
+  border: none;
+  font-size: 1em;
 }

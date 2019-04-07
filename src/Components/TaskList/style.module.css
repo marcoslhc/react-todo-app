@@ -1,6 +1,38 @@
+.TaskListWrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+  align-items: stretch;
+  border: solid black 1px;
+  min-height: 1.5em;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
 .TaskList {
   flex-flow: row nowrap;
   margin: 0 0.5em 0 0.5em;
   padding: 0;
   list-style: none;
+}
+.TaskList li {
+  border-bottom: solid 1px rgb(22, 22, 22);
+}
+
+.TaskList li:last-child {
+  border: none;
+}
+
+.TodoEnter {
+  opacity: 0;
+}
+.TodoEnterActive {
+  opacity: 1;
+  transition: all 200ms;
+}
+.TodoExit {
+  opacity: 1;
+}
+.TodoExitActive {
+  opacity: 0;
+  transition: all 200ms;
 }

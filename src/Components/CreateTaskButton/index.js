@@ -1,19 +1,22 @@
 import React from "react";
 import style from "./style.module.css";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import Icons from "../Icon";
 const Button = ({ children, ...props }) => <div {...props}>{children}</div>;
 const ActionButton = props => (
   <Button className={style.CreateTaskButton} {...props}>
-    Create New Task
+    <Icons.Add style={{ marginRight: "0.8em" }} />
+    Add New Task
   </Button>
 );
 const CancelButton = props => (
   <Button className={style.TextCancel} {...props}>
-    Cancel
+    <Icons.Cancel />
   </Button>
 );
 const SaveButton = props => (
   <Button className={style.TextSave} {...props}>
-    Save
+    <Icons.Check />
   </Button>
 );
 const TextInput = props => (
@@ -31,16 +34,44 @@ const SaveCancelCombo = ({ onSave, onCancel }) => (
 
 export default function CreateTaskButton({ onCreateTask }) {
   const [clean, setClean] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState("");
   const cleanAfterAction = () => {
     setTitle("");
     setClean(true);
+    setOpen(false);
   };
   return (
     <div className={style.CreateTask}>
-      {clean ? (
-        <ActionButton onClick={() => setClean(!clean)} />
-      ) : (
+      <CSSTransition
+        in={clean}
+        timeout={200}
+        unmountOnExit
+        appear
+        onExited={() => setOpen(true)}
+        classNames={{
+          enter: style.ActionButtonFormEnter,
+          enterActive: style.ActionButtonEnterActive,
+          exit: style.ActionButtonExit,
+          exitActive: style.ActionButtonExitActive
+        }}>
+        <ActionButton
+          onClick={() => {
+            setClean(false);
+          }}
+        />
+      </CSSTransition>
+      <CSSTransition
+        in={!clean && open}
+        timeout={500}
+        unmountOnExit
+        onExited={cleanAfterAction}
+        classNames={{
+          enter: style.TitleFormEnter,
+          enterActive: style.TitleFormEnterActive,
+          exit: style.TitleFormExit,
+          exitActive: style.TitleFormExitActive
+        }}>
         <div className={style.TitleForm}>
           <TextInput
             onChange={({ target: { value } }) => setTitle(value)}
@@ -48,13 +79,13 @@ export default function CreateTaskButton({ onCreateTask }) {
           />
           <SaveCancelCombo
             onSave={() => {
-              onCreateTask({ title });
-              cleanAfterAction();
+              title && onCreateTask({ title });
+              setOpen(false);
             }}
-            onCancel={cleanAfterAction}
+            onCancel={() => setOpen(false)}
           />
         </div>
-      )}
+      </CSSTransition>
     </div>
   );
 }

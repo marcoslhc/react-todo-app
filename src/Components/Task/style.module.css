@@ -5,7 +5,6 @@
 .Task {
   display: flex;
   flex-flow: row nowrap;
-  border-bottom: solid 1px rgb(22, 22, 22);
   padding: 0.5em 0 0.5em 0;
 }
 
@@ -16,7 +15,10 @@
 }
 
 .Checkbox {
-  margin-right: 1em;
+  margin-right: 0.3em;
+}
+.CheckboxComplete {
+  color: var(--green);
 }
 
 .Delete {

@@ -1,26 +1,30 @@
 .FilterButton {
   display: flex;
   padding: 0.9em;
-  border-top: solid 1px black;
+  border-top: none;
   border-bottom: solid 1px black;
-  margin: 1em 0 1em 0;
+  margin: 0 0 1em 0;
   width: 100%;
   text-align: center;
   justify-content: center;
   cursor: pointer;
+  background-color: var(--light-blue);
 }
 .FilterButton:hover {
-  background-color: rgb(129, 129, 129);
+  background-color: var(--blue);
 }
 .FilterButton:first-child {
-  border-top-left-radius: 0.3em;
+  border-top-left-radius: 0;
   border-bottom-left-radius: 0.3em;
   border: solid 1px black;
-  border-right: none;
+  border-top: none;
 }
 .FilterButton:last-child {
-  border-top-right-radius: 0.3em;
+  border-top-right-radius: 0;
   border-bottom-right-radius: 0.3em;
   border: solid 1px black;
-  border-left: none;
+  border-top: none;
+}
+.active {
+  background-color: var(--blue);
 }

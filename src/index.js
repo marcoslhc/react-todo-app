@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import style from "./style.module.css";
+import Icons from "./Components/Icon";
 import {
   TaskList,
   FilterButton,
@@ -25,22 +26,38 @@ function App() {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   return (
-    <div className={style.App}>
-      <h1>{state.filteredBy}</h1>
-      <TaskList
-        todos={state.tasks}
-        filter={state.filter}
-        onTaskDeleted={deleteTask(dispatch)}
-        onTaskCompleted={checkTask(dispatch)}
-      />
-      <FilterBar>
-        <FilterButton onFilter={viewAll(dispatch)}>All</FilterButton>
-        <FilterButton onFilter={viewUncomplete(dispatch)}>
-          Uncomplete
-        </FilterButton>
-        <FilterButton onFilter={viewComplete(dispatch)}>Completed</FilterButton>
-      </FilterBar>
-      <CreateTaskButton onCreateTask={createTask(dispatch)} />
+    <div className={style.AppWrapper}>
+      <div className={style.App}>
+        <h1>
+          <Icons.ListAlt />
+          Todo App
+        </h1>
+        <h2>{state.filteredBy}</h2>
+        <TaskList
+          todos={state.tasks}
+          filter={state.filter}
+          onCreateTask={createTask(dispatch)}
+          onTaskDeleted={deleteTask(dispatch)}
+          onTaskCompleted={checkTask(dispatch)}
+        />
+        <FilterBar>
+          <FilterButton
+            isActive={() => state.filteredBy === "All"}
+            onFilter={viewAll(dispatch)}>
+            All
+          </FilterButton>
+          <FilterButton
+            isActive={() => state.filteredBy === "Uncomplete"}
+            onFilter={viewUncomplete(dispatch)}>
+            Uncomplete
+          </FilterButton>
+          <FilterButton
+            isActive={() => state.filteredBy === "Complete"}
+            onFilter={viewComplete(dispatch)}>
+            Completed
+          </FilterButton>
+        </FilterBar>
+      </div>
     </div>
   );
 }

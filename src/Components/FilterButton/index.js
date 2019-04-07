@@ -1,8 +1,13 @@
 import React from "react";
 import style from "./style.module.css";
-export default function FilterButton({ onFilter, children }) {
+
+function getClasses(activePredicate) {
+  const activeClass = activePredicate() ? style.active : "";
+  return `${style.FilterButton} ${activeClass}`;
+}
+export default function FilterButton({ onFilter, isActive, children }) {
   return (
-    <div className={style.FilterButton} onClick={() => onFilter()}>
+    <div className={`${getClasses(isActive)}`} onClick={() => onFilter()}>
       {children}
     </div>
   );

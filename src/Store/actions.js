@@ -38,3 +38,12 @@ export const deleteTask = dispatch => id =>
       id
     }
   });
+
+export default {
+  CHECK_TASK,
+  FILTER_VIEW_ALL,
+  FILTER_VIEW_COMPLETE,
+  FILTER_VIEW_UNCOMPLETE,
+  CREATE_TASK,
+  DELETE_TASK
+};

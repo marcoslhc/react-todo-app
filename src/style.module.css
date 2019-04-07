@@ -1,6 +1,29 @@
+:root {
+  --green: rgb(118, 216, 75);
+  --red: rgb(255, 56, 56);
+  --blue: rgb(24, 132, 204);
+  --light-blue: rgb(103, 192, 247);
+}
+:global(body) {
+  font-size: 18px;
+}
 .App {
   font-family: sans-serif;
   text-align: center;
   flex-flow: column nowrap;
   display: flex;
+  max-width: 480px;
+}
+
+.AppWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 481px) {
+  .App {
+    width: 480px;
+  }
 }
