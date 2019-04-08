@@ -18,6 +18,7 @@
   margin-right: 0.3em;
 }
 .CheckboxComplete {
+  composes: Checkbox;
   color: var(--green);
 }
 

@@ -7,6 +7,7 @@
 :global(body) {
   font-size: 18px;
 }
+
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -20,6 +21,18 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.Header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.LogoWrapper {
+  margin-right: 0.3em;
+  font-size: 2rem;
 }
 
 @media screen and (min-width: 481px) {

@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import style from "./style.module.css";
-import Icons from "./Components/Icon";
-import {
-  TaskList,
-  FilterButton,
-  CreateTaskButton,
-  FilterBar
-} from "./Components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faListAlt } from "@fortawesome/free-regular-svg-icons";
+import { TaskList, FilterButton, FilterBar } from "./Components";
 
 import {
   createTask,
@@ -28,10 +24,12 @@ function App() {
   return (
     <div className={style.AppWrapper}>
       <div className={style.App}>
-        <h1>
-          <Icons.ListAlt />
-          Todo App
-        </h1>
+        <div className={style.Header}>
+          <div class={style.LogoWrapper}>
+            <FontAwesomeIcon icon={faListAlt} />
+          </div>
+          <h1>Todo App</h1>
+        </div>
         <h2>{state.filteredBy}</h2>
         <TaskList
           todos={state.tasks}
