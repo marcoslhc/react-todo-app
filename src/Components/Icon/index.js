@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./style.module.css";
-import "@fortawesome/fontawesome-free/js/all.min.js";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export const Icon = ({ className, ...props }) => (
   console.log(className),
