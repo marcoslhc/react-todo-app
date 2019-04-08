@@ -8,10 +8,10 @@
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-scripts": "2.1.8",
-    "react-transition-group": "^2.9.0"
+    "react-transition-group": "^2.9.0",
+    "@fortawesome/fontawesome-free": "^5.8.1"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
     "typescript": "3.3.3"
   },
   "scripts": {
