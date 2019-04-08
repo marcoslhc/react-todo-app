@@ -1,24 +1,23 @@
 import React from "react";
 import style from "./style.module.css";
 import { CSSTransition } from "react-transition-group";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AddTask, ConfirmAction, CancelAction } from "../Icons";
 
-import { faPlus, faTimes, faCheck } from "@fortawesome/free-solid-svg-icons";
 const Button = ({ children, ...props }) => <div {...props}>{children}</div>;
 const ActionButton = props => (
   <Button className={style.CreateTaskButton} {...props}>
-    <FontAwesomeIcon icon={faPlus} style={{ marginRight: "0.8em" }} />
+    <AddTask style={{ marginRight: "0.8em" }} />
     Add New Task
   </Button>
 );
 const CancelButton = props => (
   <Button className={style.TextCancel} {...props}>
-    <FontAwesomeIcon icon={faTimes} />
+    <CancelAction />
   </Button>
 );
 const SaveButton = props => (
   <Button className={style.TextSave} {...props}>
-    <FontAwesomeIcon icon={faCheck} />
+    <ConfirmAction />
   </Button>
 );
 const TextInput = props => (

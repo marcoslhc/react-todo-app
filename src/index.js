@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import style from "./style.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faListAlt } from "@fortawesome/free-regular-svg-icons";
+import { AppLogo } from "./Components/Icons";
 import { TaskList, FilterButton, FilterBar } from "./Components";
 
 import {
@@ -26,7 +25,7 @@ function App() {
       <div className={style.App}>
         <div className={style.Header}>
           <div class={style.LogoWrapper}>
-            <FontAwesomeIcon icon={faListAlt} />
+            <AppLogo />
           </div>
           <h1>Todo App</h1>
         </div>
